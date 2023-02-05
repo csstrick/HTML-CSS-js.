@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      div
+      {
+        font-size: 40px;
+        color: rgb(50, 120, 120); 
+        text-align: center;
+
+      }
+      button
+      {
+ border-radius: 100px;
+ background-color: bisque;
+     
+      }
+    </style>
+</head>
+<body>
+    <div id="div1">
+    </div>
+    <audio id="myAudio">
+        <source src="add your song-path">
+        Your browser does not support the audio.
+      </audio>
+      <div>
+        <button id="playButton">play</button>
+        <button id="pauseButton">Pause</button>
+      </div>
+      <script>
+         var ele=document.getElementById('div1');
+        const audio = document.getElementById("myAudio");
+        const playButton = document.getElementById("playButton");
+        playButton.addEventListener("click", function() {
+  ele.innerHTML="song is playing.."
+          audio.play();
+        });
+        pauseButton.addEventListener("click", function() {
+            ele.innerHTML="song is pause.."
+    audio.pause();
+  });
+
+      </script>
+      
+</body>
+</html>
