@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body
+  {
+    background-color: gray;
+  }
+#wave-button {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  margin: auto; 
+  left:300px;
+  top: 200px;
+}
+
+#wave-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.wave {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: scale(0);
+  animation: wave 1s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <button id="wave-button">Click me</button>
+
+</body>
+<script>
+  const waveButton = document.getElementById("wave-button");
+
+waveButton.addEventListener("click", function() {
+  const wave = document.createElement("span");
+  wave.classList.add("wave");
+  this.appendChild(wave);
+  setTimeout(() => wave.remove(),600);
+});
+
+</script>
+</html>
